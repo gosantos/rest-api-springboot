@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.springframework.http.ResponseEntity;
 
-import java.util.HashMap;
 import java.util.Optional;
 
 import static org.hamcrest.core.Is.is;
