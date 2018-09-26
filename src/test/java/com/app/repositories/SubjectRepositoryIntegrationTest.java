@@ -27,7 +27,7 @@ public class SubjectRepositoryIntegrationTest {
 
     @Test
     public void shouldSaveAndFetchAnSubject() {
-        final Subject subject = Subject.builder().name("Foo Bar Baz").build();
+        final Subject subject = Subject.builder().title("Foo Bar Baz").build();
         subjectRepository.save(subject);
 
         final Optional<Subject> subjectFoundById = subjectRepository.findById(subject.getId());

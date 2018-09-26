@@ -20,5 +20,5 @@ public class Subject {
     @GeneratedValue
     private Long id;
 
-    private String name;
+    private String title;
 }
