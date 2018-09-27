@@ -11,7 +11,7 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-@Builder
+@Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class Subject {
@@ -21,4 +21,5 @@ public class Subject {
     private Long id;
 
     private String title;
+
 }
