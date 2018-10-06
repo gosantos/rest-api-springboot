@@ -18,7 +18,7 @@ public class SubjectsController {
         this.subjectRepository = subjectRepository;
     }
 
-    @PostMapping(value = "subjects")
+    @PostMapping(value = "/subjects")
     public ResponseEntity<Subject> postASubject(final SubjectRequest subjectRequest) {
         final Subject subject = Subject.builder().title(subjectRequest.getTitle()).build();
         final Subject savedSubject = subjectRepository.save(subject);
