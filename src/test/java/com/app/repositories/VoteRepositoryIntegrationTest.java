@@ -27,7 +27,7 @@ public class VoteRepositoryIntegrationTest {
 
     @Test
     public void shouldBeAbleToSaveAndFetchAVote() {
-        final Vote vote = Vote.builder().associateId(123L).subjectId(231L).value(true).build();
+        final Vote vote = Vote.builder().value(true).build();
 
         voteRepository.save(vote);
 

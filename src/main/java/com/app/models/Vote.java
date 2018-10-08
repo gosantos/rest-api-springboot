@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Data
 @Entity
@@ -20,9 +21,11 @@ public class Vote {
     @GeneratedValue
     private Long id;
 
-    private Long associateId;
-
-    private Long subjectId;
-
     private boolean value;
+
+    @ManyToOne
+    private Election election;
+
+    @ManyToOne
+    private Associate associate;
 }

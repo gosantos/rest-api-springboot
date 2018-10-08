@@ -37,7 +37,7 @@ public class ElectionControllerAPITest {
         final Subject subject = Subject.builder().title("FOO BAR").build();
         given(subjectRepository.findByTitle("FOO BAR")).willReturn(Optional.of(subject));
 
-        final Election election = Election.builder().id(1L).subject(subject).build();
+        final Election election = Election.builder().id(1L).duration(60).subject(subject).build();
         given(electionRepository.save(election)).willReturn(election);
 
         mockMvc.perform(post("/elections/")

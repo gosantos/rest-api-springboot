@@ -2,6 +2,7 @@ package com.app.controllers;
 
 import com.app.models.Associate;
 import com.app.repositories.AssociateRepository;
+import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +32,12 @@ public class AssociatesControllerAPITest {
 
     @Test
     public void shouldReturn200WhenGettingAnAssociate() throws Exception {
-        final Associate associate = Associate.builder().id(123L).name("Foo").build();
+        final Associate associate = Associate.builder().id(123L).name("Foo").votes(Sets.newHashSet()).build();
         given(associateRepository.findById(associate.getId())).willReturn(Optional.of(associate));
 
         mockMvc.perform(get("/associates/123"))
                 .andExpect(status().is2xxSuccessful())
-                .andExpect(content().string("{\"id\":123,\"name\":\"Foo\"}"));
+                .andExpect(content().string("{\"id\":123,\"name\":\"Foo\",\"votes\":[]}"));
     }
 
     @Test
@@ -47,7 +48,7 @@ public class AssociatesControllerAPITest {
 
     @Test
     public void shouldReturn200WhenPostingAnAssociate() throws Exception {
-        final Associate associate = Associate.builder().id(123L).name("Foo").build();
+        final Associate associate = Associate.builder().id(123L).name("Foo").votes(Sets.newHashSet()).build();
         given(associateRepository.save(associate)).willReturn(associate);
 
         mockMvc.perform(post("/associates/")

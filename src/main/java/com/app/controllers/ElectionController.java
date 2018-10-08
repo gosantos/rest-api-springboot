@@ -3,6 +3,7 @@ package com.app.controllers;
 import com.app.models.Election;
 import com.app.models.ElectionRequest;
 import com.app.models.Subject;
+import com.app.models.Vote;
 import com.app.repositories.ElectionRepository;
 import com.app.repositories.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,8 @@ public class ElectionController {
 
         final Integer duration = electionRequest.getDuration();
         final Election election = Election.builder().duration(duration).subject(subject).build();
-        electionRepository.save(election);
+        final Election savedElection = electionRepository.save(election);
 
-        return ResponseEntity.ok(election);
+        return ResponseEntity.ok(savedElection);
     }
 }
